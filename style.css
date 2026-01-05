@@ -1,0 +1,325 @@
+/* 1. IMPORT FONT DARI GOOGLE (Taruh Paling Atas) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /* --- WARNA TETAP SAMA --- */
+    --bg-color: #F9FAFB;
+    --card-bg: #FFFFFF;
+    --text-color: #111827;
+    --text-secondary: #6B7280;
+    --primary: #6366F1;
+    --success: #22C55E;
+    
+    --accent-kuliah: #EF4444;
+    --accent-belajar: #F59E0B;
+    --accent-selfcare: var(--success);
+}
+
+/* 2. SETTING TYPOGRAPHY GLOBAL */
+body {
+    /* Gunakan Font Poppins sebagai utama */
+    font-family: 'Poppins', sans-serif;
+    
+    /* Warna & Background */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    
+    /* SPASI LEGA (Airy Layout) */
+    line-height: 1.6; /* Jarak antar baris teks lebih renggang */
+    
+    /* Reset margin/padding */
+    margin: 0;
+    padding: 1.5rem; /* Padding body sedikit diperluas */
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* 3. JUDUL (SEMI-BOLD) */
+h1 {
+    font-weight: 600; /* Semi-Bold */
+    font-size: 1.5rem;
+    margin: 0;
+    letter-spacing: -0.5px; /* Sedikit dirapatkan biar estetik */
+}
+
+/* 4. ISI / TEXT BIASA (REGULAR) */
+p, span, input, select, button, li {
+    font-weight: 400; /* Regular */
+    font-size: 1rem;  /* Ukuran standar yang terbaca jelas */
+}
+
+/* 5. TWEAK SPASI AGAR LEBIH LEGA */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Jarak antar input diperlebar (sebelumnya 12px) */
+    margin-bottom: 30px; /* Jarak ke list diperlebar */
+}
+
+li {
+    padding: 18px; /* Area dalam list diperluas (sebelumnya 16px) */
+    margin-bottom: 12px; /* Beri jarak antar item list (biar tidak dempet) */
+    border-radius: 12px; /* Sudut lebih membulat */
+    background: var(--card-bg);
+    border-bottom: 1px solid transparent; /* Hilangkan garis bawah, ganti shadow halus */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Biar inputan terasa luas */
+input, select, button {
+    padding: 16px; /* Padding dalam input lebih lega */
+}
+
+/* --- CONTAINER (Mobile: Full Width) --- */
+.container {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    width: 100%;       /* Penuhi layar HP */
+    max-width: 100%;   /* Pastikan tidak ada batas di HP */
+    height: fit-content;
+}
+
+/* --- HEADER & TOGGLE --- */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.3rem; /* Font agak kecil di HP biar muat */
+    font-weight: 700;
+}
+
+.btn-toggle {
+    background: transparent;
+    border: 1px solid #ddd;
+    width: 44px; /* Touch target minimal 44px */
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    flex-shrink: 0; /* Agar tombol tidak tergencet */
+}
+
+/* --- SUMMARY CARD (Mobile: Stack) --- */
+.summary-card {
+    background: var(--bg-color); /* Sedikit beda biar kontras */
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.date-badge {
+    display: inline-block;
+    background: #EEF2FF;
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.progress-bg {
+    width: 100%;
+    height: 8px;
+    background-color: #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+#progress-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    float: right;
+}
+
+.motivasi-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* --- INPUT AREA (Mobile: Stack Vertikal) --- */
+/* Ini kunci "Thumb Friendly": Input ditumpuk ke bawah */
+.input-group {
+    display: flex;
+    flex-direction: column; /* Tumpuk ke bawah di HP */
+    gap: 12px; /* Jarak antar elemen */
+    margin-bottom: 25px;
+}
+
+input, select, button {
+    padding: 14px 16px; /* Padding tebal biar enak disentuh */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem; /* Font jangan kekecilan */
+    width: 100%; /* Lebar penuh agar mudah kena jempol */
+}
+
+/* Tombol Tambah yang Menonjol */
+/* Tombol Tambah Utama */
+button[onclick="tambahAktivitas()"] {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+    transition: transform 0.1s; /* Tambahkan ini agar animasi halus */
+    cursor: pointer; /* Mengubah kursor jadi telunjuk saat diarahkan */
+}
+
+/* Efek saat tombol ditekan (Active State) */
+button[onclick="tambahAktivitas()"]:active {
+    transform: scale(0.98); /* Tombol mengecil sedikit saat dipencet */
+}
+
+/* --- LIST AKTIVITAS --- */
+ul { list-style: none; padding: 0; }
+
+li {
+    background: var(--card-bg);
+    border-bottom: 1px solid #eee;
+    padding: 16px; /* Area sentuh luas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+li span {
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+li span small {
+    display: block; /* Kategori turun ke baris baru di HP */
+    margin-top: 4px;
+    color: var(--text-secondary);
+}
+
+/* Indikator Warna Kiri */
+li.kategori-kuliah { border-left: 4px solid var(--accent-kuliah); }
+li.kategori-belajar { border-left: 4px solid var(--accent-belajar); }
+li.kategori-selfcare { border-left: 4px solid var(--accent-selfcare); }
+
+/* Tombol Hapus Besar */
+.btn-hapus {
+    background: #FEE2E2; /* Background merah muda tipis */
+    color: #EF4444;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+/* Efek Selesai */
+li.selesai span {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* --- MEDIA QUERY (TABLET & DESKTOP) --- */
+/* Saat layar lebih lebar dari 768px (Tablet/Laptop), ubah layout */
+@media (min-width: 768px) {
+    body {
+        padding-top: 50px;
+        align-items: flex-start; /* Balik ke atas */
+    }
+
+    .container {
+        max-width: 500px; /* Batasi lebar agar tidak melar */
+        margin: 0 auto;
+    }
+
+    /* Kembalikan input menjadi satu baris */
+    .input-group {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+   /* Input text lebih lebar */
+    #input-tugas { 
+        flex: 1; /* Biarkan dia mengisi sisa ruang yang ada */
+    }
+
+    /* Dropdown Kategori */
+    #input-kategori { 
+        flex: 0 0 auto;   /* Jangan membesar/mengecil otomatis */
+        width: auto;      /* Lebar mengikuti isi teks terpanjang */
+        min-width: 180px; /* JAGA-JAGA: Lebar minimal agar "Belajar Mandiri" muat */
+    }
+
+    button[onclick="tambahAktivitas()"] { width: auto; }
+
+    li span small {
+        display: inline; /* Kategori kembali ke samping */
+        margin-left: 8px;
+    }
+}
+
+/* --- DARK MODE OVERRIDES (Tetap dipertahankan) --- */
+body.dark-mode {
+    --bg-color: #0F172A;
+    --card-bg: #1E293B;
+    --text-color: #F3F4F6;
+    --text-secondary: #94A3B8;
+    --primary: #818CF8;
+}
+
+body.dark-mode .summary-card {
+    background: #0F172A; /* Card di dalam card lebih gelap */
+    border: 1px solid #334155;
+}
+
+body.dark-mode .date-badge {
+    background-color: #334155;
+    color: #E2E8F0;
+}
+
+body.dark-mode input, 
+body.dark-mode select {
+    background-color: #0F172A;
+    border-color: #475569;
+    color: white;
+}
+
+body.dark-mode li {
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode .btn-toggle {
+    border-color: #475569;
+    background-color: #334155;
+}
+
+body.dark-mode .btn-hapus {
+    background-color: #451a1a; /* Merah gelap */
+}

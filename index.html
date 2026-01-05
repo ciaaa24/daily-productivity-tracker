@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Productivity Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+       <div class="header-content" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+    <h1 style="margin: 0;">✅ Daily Productivity</h1>
+    
+    <button id="theme-toggle" class="btn-toggle" title="Ganti Mode">🌙</button>
+</div>
+        
+        <div class="summary-card">
+    <div class="header-row">
+        <div class="date-badge">
+            📅 <span id="tanggal-text">Memuat tanggal...</span>
+        </div>
+    </div>
+    
+    <div class="progress-area">
+        <div class="progress-bg">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <small id="progress-text">0% Selesai</small>
+    </div>
+
+    <p class="motivasi-text">
+        Halo <span id="nama-user" style="font-weight:bold; color:var(--primary)">User</span>, 
+        <br>Kamu sudah melangkah hari ini! 🚀
+    </p>
+</div>
+        <div class="input-group">
+            <input type="text" id="input-tugas" placeholder="Apa fokusmu hari ini?">
+            <select id="input-kategori">
+                <option value="kuliah">🎓 Tugas Kuliah</option>
+                <option value="belajar">📚 Belajar Mandiri</option>
+                <option value="selfcare">🌿 Self Care</option>
+            </select>
+            
+            <button onclick="tambahAktivitas()">Tambah</button>
+        </div>
+
+        <div class="info-bar">
+            <span id="info-total">Belum ada aktivitas</span>
+        </div>
+
+        <ul id="list-aktivitas">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
