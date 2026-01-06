@@ -1,3 +1,6 @@
+* {
+    box-sizing:  border-box;
+}
 /* 1. IMPORT FONT DARI GOOGLE (Taruh Paling Atas) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -69,6 +72,7 @@ li {
 /* Biar inputan terasa luas */
 input, select, button {
     padding: 16px; /* Padding dalam input lebih lega */
+    width: 100%;
 }
 
 /* --- CONTAINER (Mobile: Full Width) --- */
